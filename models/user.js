@@ -15,24 +15,6 @@ const userSchema = new Schema({
         required: [true, "Please enter a password"],
         minlength: [6, "Minimum password length is 6 characters"],
     },
-    username: {
-        type: String,
-        required: [true, "Please enter a username"],
-    },
-    phone: {
-        type: String,
-        required: [true, "Please enter an address"],
-        minlength: [11, "Your number is not of 11 digits"],
-    },
-
-    address: {
-        type: String,
-        required: [true, "Please enter an address"],
-    },
-
-    otp: {
-        type: Number
-    }
 }, { timestamps: true });
 
 //fire a funtion before doc saved to db

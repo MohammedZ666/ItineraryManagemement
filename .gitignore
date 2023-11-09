@@ -1,7 +1,4 @@
-*/node_modules
-server/.git
-server/*.env
-server/config/firebase_secret.json
-server/config/credentials.js
+.git
+*.env
 .DS_Store
-*/npm-debug.log
+node_modules
