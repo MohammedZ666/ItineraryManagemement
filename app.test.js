@@ -4,6 +4,6 @@ const app = require('./app')
 const { describe } = require('yargs')
 
 
-describe("create user", () => {
+describe("", () => {
 
 })
