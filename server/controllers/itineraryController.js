@@ -1,4 +1,4 @@
-const Product = require("../models/product");
+const Product = require("../models/itinerary");
 const Image = require("../models/Image");
 var mongoose = require("mongoose");
 const { Readable } = require("stream");
