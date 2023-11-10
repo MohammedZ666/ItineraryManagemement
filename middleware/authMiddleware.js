@@ -1,25 +1,23 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user')
-const SECRET = 'this is my secret find it if you can'
 
 const requireAuth = (req, res, next) => {
     const token = req.cookies.jwt
 
     //check json web token exists
     if (token) {
-        jwt.verify(token, SECRET, (err, decodedToken) => {
+        jwt.verify(token, process.env.SECRET, async (err, decodedToken) => {
             if (err) {
-                console.log(err.message)
-                res.redirect('/login')
+                throw Error(err)
             }
             else {
-                console.log(decodedToken)
+                req.user = decodedToken
                 next()
             }
         })
     }
     else {
-        res.redirect('/login')
+        throw Error("Cookie not found")
     }
 }
 

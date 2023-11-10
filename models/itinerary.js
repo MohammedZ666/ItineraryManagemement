@@ -24,7 +24,8 @@ const itinerarySchema = new Schema({
     accomodation: {
         type: String,
         required: false
-    }
+    },
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
 }, { timestamps: true });
 
 const Itinerary = mongoose.model('Itinerary', itinerarySchema)

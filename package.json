@@ -4,8 +4,8 @@
   "description": "an ecom app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "export $(cat < .env | xargs);node ./node_modules/nodemon/bin/nodemon.js"
+    "test": "jest --forceExit",
+    "start": "node ./node_modules/nodemon/bin/nodemon.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "firebase-admin": "^9.11.1",
     "image-thumbnail": "^1.0.13",
     "jsonwebtoken": "^8.5.1",

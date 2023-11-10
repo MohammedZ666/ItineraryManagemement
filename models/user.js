@@ -19,14 +19,12 @@ const userSchema = new Schema({
 
 //fire a funtion before doc saved to db
 userSchema.pre('save', async function (next) {
-    console.log("user about to be created", this);
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
     next();
 })
 userSchema.pre('findOneAndUpdate', async function (next) {
     let password = this._update.password;
-    console.log("user about to be updated", password);
     if (!password) {
         next();
     }

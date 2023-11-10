@@ -2,60 +2,40 @@ const Itinerary = require("../models/itinerary");
 
 const itinerary_index = (req, res) => {
 
-  Itinerary.find({ user: req.user })
+  Itinerary.find({ user: req.user.id })
     .sort({ createdAt: -1 })
     .then((iteniraries) => {
-      res.json({
-        iteniraries
-      });
+      res.status(201).json(iteniraries);
     })
-    .catch((err) => {
-      console.log("the error is " + err);
-    });
 }
 
 
 const itinerary_details = (req, res) => {
-  Itinerary.findById({ user: req.user })
+  Itinerary.findById({ _id: req.body.id })
     .then((result) => {
-      res.json(result);
+      res.status(201).json(result);
     })
-    .catch((err) => {
-      res.status(404).send(err);
-    });
 };
 
 const itinerary_create = (req, res) => {
-  req.itinerary.user = req.user.id;
-  Itinerary.create(req.itinerary)
+  req.body.user = req.user.id;
+  Itinerary.create(req.body)
     .then((result) => {
-      res.status(201).json({ success: result });
+      res.status(201).json(result);
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(404).json({ error: err });
-    });
 };
 
 const itinerary_update = (req, res) => {
-  Itinerary.findOneAndUpdate({ _id: req.id, user: req.user.id }, req.update)
-    .save()
+  Itinerary.findOneAndUpdate({ _id: req.body.id }, req.body)
     .then((result) => {
-      res.status(201).json({ success: result });
+      res.status(201).json(result);
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(404).json({ error: err });
-    });
 };
 
 const itinerary_delete = (req, res) => {
-  Itinerary.findByIdAndDelete(req.id)
+  Itinerary.findByIdAndDelete(req.body.id)
     .then((result) => {
-      res.status(404).json({ result });
-    })
-    .catch((err) => {
-      console.log(err);
+      res.status(201).json(result);
     });
 };
 

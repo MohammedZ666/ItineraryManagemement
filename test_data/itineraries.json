@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Travel to Cox's Bazar",
+        "dates": "['9-10-23', '9-11-23']",
+        "destinations": "['Cox's Bazar', 'Bandarban', 'Chittogong']",
+        "activities": "['taking pictures', 'travelling, 'hiking', 'mountain climbing']",
+        "transporation": "Bus",
+        "accomodation": "Hotel"
+    },
+    {
+        "name": "Travel to Jaflong",
+        "dates": "['9-10-23', '9-11-23']",
+        "destinations": "['Madhabkunda', 'Lauachara', 'Jaflong', 'Tamabil']",
+        "activities": "['taking pictures', 'travelling, 'hiking', 'mountain climbing']",
+        "transporation": "Bus",
+        "accomodation": "Hotel"
+    },
+    {
+        "name": "Travel to Darjeling",
+        "dates": "['9-10-23', '9-11-23']",
+        "destinations": "['Kolkata', 'Darjeling']",
+        "activities": "['taking pictures', 'travelling, 'hiking', 'mountain climbing']",
+        "transporation": "Bus",
+        "accomodation": "Hotel"
+    }
+]
