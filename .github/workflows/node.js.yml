@@ -32,7 +32,7 @@ jobs:
       run: npm test
       env:
         DB_KEY: ${{ secrets.DB_KEY}}
-        PORT: ${{ env.PORT}}
+        PORT: ${{ vars.PORT}}
         SECRET: ${{ secrets.SECRET}}
     
     - name: Set up QEMU
