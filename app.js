@@ -1,5 +1,4 @@
 const express = require("express");
-require('dotenv').config()
 require('express-async-errors');
 const path = require("path");
 const morgan = require("morgan");
@@ -20,7 +19,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-  }).catch((err) => console.log(err));
+  }).then(result => console.log("Connected to mongodb")).catch((err) => console.log(err));
 
 // express app
 const app = express();
