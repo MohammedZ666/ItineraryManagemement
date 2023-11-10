@@ -51,4 +51,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: mohammedz666/speech-transcription:latest
+        tags: mohammedz666/itinerary_management:latest
