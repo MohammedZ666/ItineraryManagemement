@@ -5,7 +5,10 @@ This REST API project allows a user to manage their travel itineraries by allowi
 Check the [API Documentation](https://documenter.getpostman.com/view/15336332/2s9YXk31Cv) for usage details.
 
 ## NPM
-NPM can be used to setup the project, for this ensure [Node.js version 18.13.0](https://nodejs.org/dist/v18.13.0/) is installed. To install and run the project, at first clone the project. Then create a `.env` file in the root directory of the project and write the following in the file - 
+NPM can be used to setup the project, for this ensure Node.js with version 18.13.0 is installed. For windows download `.msi` file from [here](https://nodejs.org/dist/v18.13.0/) according to your architechture and install. For linux based distributions, follow the instructions provided [here](https://github.com/nodesource/distributions#installation-instructions).
+
+
+To install and run the project, at first clone the project. Then create a `.env` file in the root directory of the project and write the following in the file - 
 
 ```
 PORT=3000
@@ -21,7 +24,7 @@ npm start
 ```
 
 ## [Docker](https://hub.docker.com/r/mohammedz666/itinerary_management) 
-Docker can also be used to run the project in a container. To do this, install docker, then run the following -
+Docker can also be used to run the project in a container. To do this, install docker following the instructions from [here](https://docs.docker.com/desktop/), then run the following -
 
 ```
 docker pull mohammedz666/itinerary_management
