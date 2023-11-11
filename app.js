@@ -9,6 +9,8 @@ const { requireAuth } = require("./middleware/authMiddleware");
 const errorMiddleware = require("./middleware/errorMiddleware");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const { default: rateLimit } = require("express-rate-limit");
+const limiter = require("./middleware/rateLimiterMiddleware");
 const publicDir = "/public/";
 
 // connect to mongodb
@@ -35,12 +37,15 @@ app.use(
 app.use(morgan("dev"));
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
+app.use(limiter);
 app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
 });
+
 // routes
-app.use("/data/itinerary", requireAuth, itineraryRoutes);
+app.use("/api/v1/itinerary", requireAuth, itineraryRoutes);
+
 //auth routes
 app.use(authRoutes);
 

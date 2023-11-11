@@ -26,7 +26,9 @@ const itinerary_create = (req, res) => {
 };
 
 const itinerary_update = (req, res) => {
-  Itinerary.findOneAndUpdate({ _id: req.body.id }, req.body)
+  Itinerary.findOneAndUpdate({ _id: req.body.id }, req.body, {
+    new: true
+  })
     .then((result) => {
       res.status(201).json(result);
     })

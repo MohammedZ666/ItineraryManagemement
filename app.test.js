@@ -20,14 +20,14 @@ describe("User authentication and authorization", () => {
 describe("Itinerary CRUD", () => {
     let itenirary = ''
     test("create itenirary", async () => {
-        const result = await agent.post("/data/itinerary/create").send(itineraries[0]);
+        const result = await agent.post("/api/v1/itinerary/create").send(itineraries[0]);
         itenirary = result.body;
         expect(result.statusCode === 201).toBe(true)
         expect(result['headers']['content-type'].includes('json')).toBe(true)
 
     })
     test("read itenirary", async () => {
-        const result = await agent.get("/data/itinerary/detail").send(
+        const result = await agent.get("/api/v1/itinerary/detail").send(
             { id: itenirary._id }
         );
         expect(result.statusCode === 201).toBe(true)
@@ -35,21 +35,33 @@ describe("Itinerary CRUD", () => {
 
     })
     test("read all iteniraries", async () => {
-        const result = await agent.get("/data/itinerary/list").send();
+        const result = await agent.get("/api/v1/itinerary/list").send();
         expect(result.statusCode === 201).toBe(true)
         expect(result['headers']['content-type'].includes('json')).toBe(true)
 
     })
     test("update itenirary", async () => {
         itenirary.name = 'Travel to Bandarban'
-        const result = await agent.put("/data/itinerary/update").send(itenirary);
+        const result = await agent.put("/api/v1/itinerary/update").send(itenirary);
         expect(result.statusCode === 201).toBe(true)
         expect(result['headers']['content-type'].includes('json')).toBe(true)
 
     })
     test("delete itenirary", async () => {
-        const result = await agent.delete("/data/itinerary/delete").send({ id: itenirary._id });
+        const result = await agent.delete("/api/v1/itinerary/delete").send({ id: itenirary._id });
         expect(result.statusCode === 201).toBe(true)
+        expect(result['headers']['content-type'].includes('json')).toBe(true)
+
+    })
+})
+
+describe("Rate limit test", () => {
+    test("read all iteniraries exceeding rate limit", async () => {
+        let result = {}
+        for (let index = 0; index <= 3; index++) {
+            result = await agent.get("/api/v1/itinerary/list").send();
+        }
+        expect(result.statusCode === 500 && result.body.message === 'Request limit exceeded. You can only request 10 times per minute.').toBe(true)
         expect(result['headers']['content-type'].includes('json')).toBe(true)
 
     })
