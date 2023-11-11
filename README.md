@@ -5,7 +5,7 @@ This REST API project allows a user to manage their travel itineraries by allowi
 Check the [API Documentation](https://documenter.getpostman.com/view/15336332/2s9YXk31Cv) for usage details.
 
 ## NPM
-NPM can be used to setup the project, for this please ensure Node.js with version 18.13.0 is installed. For windows download a `.msi` file from [here](https://nodejs.org/dist/v18.13.0/) according to your architechture and install. For linux based distributions, please follow the instructions provided [here](https://github.com/nodesource/distributions#installation-instructions).
+NPM can be used to setup the project, for this please ensure Node.js with version 18.13.0 is installed. For windows download an `.msi` file from [here](https://nodejs.org/dist/v18.13.0/) according to your architechture and install. For linux based distributions, please follow the instructions provided [here](https://github.com/nodesource/distributions#installation-instructions).
 
 
 To install and run the project, at first clone the project. Then create a `.env` file in the root directory of the project and write the following in the file - 
